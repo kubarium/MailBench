@@ -1,5 +1,7 @@
 const electron = require('electron')
 const {app, BrowserWindow} = electron
+const client = require('electron-connect').client
+
 let win
 
 const shouldQuit = app.makeSingleInstance((commandLine, workingDirectory) => {
@@ -16,8 +18,12 @@ if (shouldQuit) {
 }
 
 app.on("ready", () => {
-    win = new BrowserWindow()
+    win = new BrowserWindow({})
     win.loadURL(`file://${__dirname}/index.html`)
-    win.maximize()
+    win.openDevTools()
+    //win.maximize()
+    win.center()
     //Menu.setApplicationMenu(new Menu())
+    client.create(win)
 })
+

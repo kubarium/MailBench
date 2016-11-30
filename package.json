@@ -2,7 +2,7 @@
   "name": "mailbench",
   "version": "1.0.0",
   "description": "Preview your email templates with real values and trigger Litmus tests.",
-  "main": "index.js",
+  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/kubarium/MailBench.git"
@@ -20,6 +20,8 @@
   "author": "Kumsal Obuz",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.4.10"
+    "electron": "^1.4.10",
+    "electron-connect": "^0.6.1",
+    "gulp": "^3.9.1"
   }
 }
