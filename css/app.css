@@ -1,3 +1,38 @@
+main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;    
+}
+header{
+}
+header div{
+    padding: 5px;
+    background:#fc605b 
+}
+Settings{
+    flex-basis: 200px;
+    flex-grow: 1;
+    order:1;
+    background: #f5f5f4;
+}
+Preview {
+    background: red;
+    order: 2;
+      flex-basis: 100%;
+      flex-grow: 2;
+      flex-shrink: 0;
+      border: 1px solid #ddd;
+      border-top: 0;
+      border-bottom: 0;
+}
+TemplateSpecific{
+    order:3;
+
+    flex-basis: 200px;
+    flex-grow: 1;
+}
 .red{
      color:#fc605b
 }
@@ -14,12 +49,6 @@
     color:#57acf5
 }
 
-.checkbox{
- 
-    
-}
-.nav-group-item1{
-    display: flex !important;
-    align-items: stretch;
-    align-content: stretch
-}
+.window {
+      overflow: hidden;
+    }
