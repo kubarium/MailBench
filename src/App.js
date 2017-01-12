@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Branding from './Branding'
+import Recipients from './Recipients'
 import {Button, Grid, Row, Col, Panel} from 'react-bootstrap'
 
 /*<div id='main'>
@@ -11,8 +12,9 @@ import {Button, Grid, Row, Col, Panel} from 'react-bootstrap'
           <aside>aside</aside>
         </div>*/
 
+
 const templatesHeader = (
-  <h3>Panel title</h3>
+  <h3>Templates</h3>
 )
 
 const templatesFooter = (
@@ -24,14 +26,18 @@ class App extends Component {
     return (
       <article>
         <Branding/>
+        <Recipients/>
         <Grid>
           <Row className="show-grid">
-
-            <Panel header={templatesHeader} footer={templatesFooter}>fuck me</Panel>
+            <Panel header={<h3>Templates</h3>} footer={templatesFooter}>
+              fuck me
+            </Panel>
+            <text>akak</text>
+            <Panel header={templatesHeader} footer={templatesFooter}>
+              fuck me
+            </Panel>
           </Row>
-
         </Grid>
-
       </article>
     );
   }
