@@ -22,10 +22,19 @@ const templatesFooter = (
 )
 
 class App extends Component {
+  constructor(props){
+    super(props)
+
+    this.onClick = this.onClick.bind(this)
+  }
+  onClick(event){
+
+        console.log("anani sikerler, hello from", event.state)
+  }
   render() {
     return (
       <article>
-        <Branding/>
+        <Branding onClick={this.onClick}/>
         <Recipients/>
         <Grid>
           <Row className="show-grid">
