@@ -12,38 +12,51 @@ export default class Recipient extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            checked: true,
-            email:props.email
+    }
+    updateRecipients = (event) => {
+        const newState = {
+            checked: this.refs.recipient.checked,
+            email: event.target.value
         }
-
-        this.handleCheck = this
-            .handleCheck
-            .bind(this)
-        this.handleEmail = this
-            .handleEmail
-            .bind(this)
+        console.log(newState)
+        this
+            .props
+            .updateRecipients(this.props.index, newState)
     }
-    handleCheck(event) {
-        this.setState({
-            checked: event.target.checked
-        })
-        console.log(this.state.checked)
+    /*
+    handleCheck = (event) => {
+        this.setState({checked: event.target.checked})
+        this.props.updateRecipients(this.state)
     }
-    handleEmail(event) {
+    handleEmail = (event) => {
         this.setState({email: event.target.value})
-        console.log(event.target.value)
+        this.props.updateRecipients(this.state)
+}*/
+    removeRecipient = () => {
+        this
+            .props
+            .removeRecipient(this.refs.email)
     }
     render() {
         return (
             <InputGroup>
-
                 <InputGroup.Addon>
-                    <input type="checkbox" defaultChecked onChange={this.handleCheck}/>
+                    <input
+                        ref="recipient"
+                        type="checkbox"
+                        checked={this.props.checked}
+                        onChange={this.updateRecipients}/>
                 </InputGroup.Addon>
-                <FormControl value={this.state.email} onChange={this.handleEmail}/>
+                <FormControl
+                    inputRef={ref => {
+                    this.input = ref;
+                }}
+                    type="text"
+                    ref="email"
+                    value={this.props.email}
+                    onChange={this.updateRecipients}/>
                 <InputGroup.Button>
-                    <Button bsStyle="warning"><Glyphicon glyph="remove"/></Button>
+                    <Button bsStyle="warning" onClick={this.removeRecipient}><Glyphicon glyph="remove"/></Button>
                 </InputGroup.Button>
             </InputGroup>
         )

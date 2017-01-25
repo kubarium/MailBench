@@ -4,6 +4,10 @@ import Branding from './Branding'
 import Recipients from './Recipients'
 import {Button, Grid, Row, Col, Panel} from 'react-bootstrap'
 
+let appState = localStorage["appState"]
+  ? JSON.stringify(localStorage["appState"])
+  : {}
+
 /*<div id='main'>
           <article>
             <Button bsStyle='success' bsSize='large'>Get started today</Button>
@@ -11,7 +15,21 @@ import {Button, Grid, Row, Col, Panel} from 'react-bootstrap'
           <nav>nav</nav>
           <aside>aside</aside>
         </div>*/
-
+let recipients = [
+  {
+    email: "infinity.matt@yahoo.com",
+    checked: true
+  }, {
+    email: "infinity.matt@outlook.com",
+    checked: true
+  }, {
+    email: "infinity.matt.s@gmail.com",
+    checked: false
+  }, {
+    email: "infinity.matt@aol.com",
+    checked: true
+  }
+]
 
 const templatesHeader = (
   <h3>Templates</h3>
@@ -22,23 +40,25 @@ const templatesFooter = (
 )
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
 
-    this.onClick = this.onClick.bind(this)
+    this.onClick = this
+      .onClick
+      .bind(this)
   }
-  onClick(event){
+  onClick(event) {
 
-        console.log("anani sikerler, hello from", event.state)
+    console.log("anani sikerler, hello from", event.state)
   }
   render() {
     return (
       <article>
         <Branding onClick={this.onClick}/>
-        <Recipients/>
+        <Recipients recipients={recipients}/>
         <Grid>
           <Row className="show-grid">
-            <Panel header={<h3>Templates</h3>} footer={templatesFooter}>
+            <Panel header={< h3 > Templates < /h3>} footer={templatesFooter}>
               fuck me
             </Panel>
             <text>akak</text>
