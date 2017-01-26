@@ -11,27 +11,33 @@ import {
 export default class Recipient extends Component {
     constructor(props) {
         super(props)
-
-    }
+        this.state = {
+            ...this.props
+        }
+    }/*
     updateRecipients = (event) => {
         const newState = {
             checked: this.refs.recipient.checked,
             email: event.target.value
         }
-        console.log(newState)
+        //console.log(newState)
         this
             .props
             .updateRecipients(this.props.index, newState)
-    }
-    /*
+}*/
+
     handleCheck = (event) => {
         this.setState({checked: event.target.checked})
-        this.props.updateRecipients(this.state)
+        this
+            .props
+            .updateRecipients(this.state.index, {"checked": event.target.checked})
     }
     handleEmail = (event) => {
         this.setState({email: event.target.value})
-        this.props.updateRecipients(this.state)
-}*/
+        this
+            .props
+            .updateRecipients(this.state.index, {"email":event.target.value})
+    }
     removeRecipient = () => {
         this
             .props
@@ -42,19 +48,11 @@ export default class Recipient extends Component {
             <InputGroup>
                 <InputGroup.Addon>
                     <input
-                        ref="recipient"
                         type="checkbox"
-                        checked={this.props.checked}
-                        onChange={this.updateRecipients}/>
+                        checked={this.state.checked}
+                        onChange={this.handleCheck}/>
                 </InputGroup.Addon>
-                <FormControl
-                    inputRef={ref => {
-                    this.input = ref;
-                }}
-                    type="text"
-                    ref="email"
-                    value={this.props.email}
-                    onChange={this.updateRecipients}/>
+                <FormControl value={this.state.email} onChange={this.handleEmail}/>
                 <InputGroup.Button>
                     <Button bsStyle="warning" onClick={this.removeRecipient}><Glyphicon glyph="remove"/></Button>
                 </InputGroup.Button>

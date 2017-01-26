@@ -16,12 +16,15 @@ export default class Recipients extends Component {
     removeRecipient = (email) => {
         console.log(email)
     }
-    updateRecipients = (index, newState) => {
-        console.log("fuck",index, newState)
+    updateRecipients = (index, updatedRecipient) => {
+
+        const recipient = Object.assign({}, this.state.recipients[index], updatedRecipient)
+
+        //recipients[index][key] = value console.log("fuck",index, newState)
         this.setState({
             recipients: update(this.state.recipients, {
-                index: {
-                    $set:{...newState}
+                [index]: {
+                    $set: recipient
                 }
             })
         })
