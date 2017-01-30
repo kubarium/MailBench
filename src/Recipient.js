@@ -9,52 +9,22 @@ import {
 } from 'react-bootstrap'
 
 export default class Recipient extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            ...this.props
-        }
-    }/*
-    updateRecipients = (event) => {
-        const newState = {
-            checked: this.refs.recipient.checked,
-            email: event.target.value
-        }
-        //console.log(newState)
-        this
-            .props
-            .updateRecipients(this.props.index, newState)
-}*/
-
-    handleCheck = (event) => {
-        this.setState({checked: event.target.checked})
-        this
-            .props
-            .updateRecipients(this.state.index, {"checked": event.target.checked})
-    }
-    handleEmail = (event) => {
-        this.setState({email: event.target.value})
-        this
-            .props
-            .updateRecipients(this.state.index, {"email":event.target.value})
-    }
-    removeRecipient = () => {
-        this
-            .props
-            .removeRecipient(this.refs.email)
-    }
     render() {
         return (
             <InputGroup>
                 <InputGroup.Addon>
                     <input
                         type="checkbox"
-                        checked={this.state.checked}
-                        onChange={this.handleCheck}/>
+                        checked={this.props.checked}
+                        onChange={(event) => this.props.updateRecipient(this.props.index, {"checked": event.target.checked})}/>
                 </InputGroup.Addon>
-                <FormControl value={this.state.email} onChange={this.handleEmail}/>
+                <FormControl
+                    value={this.props.email}
+                    onChange={(event) => this.props.updateRecipient(this.props.index, {"email": event.target.value})}/>
                 <InputGroup.Button>
-                    <Button bsStyle="warning" onClick={this.removeRecipient}><Glyphicon glyph="remove"/></Button>
+                    <Button
+                        bsStyle="warning"
+                        onClick={() => this.props.updateRecipient(this.props.index)}><Glyphicon glyph="remove"/></Button>
                 </InputGroup.Button>
             </InputGroup>
         )

@@ -31,38 +31,27 @@ let recipients = [
   }
 ]
 
-const templatesHeader = (
-  <h3>Templates</h3>
-)
-
-const templatesFooter = (
-  <h3>Fuck you</h3>
-)
 
 class App extends Component {
   constructor(props) {
     super(props)
 
-    this.onClick = this
-      .onClick
-      .bind(this)
   }
-  onClick(event) {
-
-    console.log("anani sikerler, hello from", event.state)
+  openRecipients = () => {
+    this.refs.recipients.setState({showModal:true})
   }
   render() {
     return (
       <article>
-        <Branding onClick={this.onClick}/>
-        <Recipients recipients={recipients}/>
+        <Branding  openRecipients={this.openRecipients}/>
+        <Recipients ref="recipients" recipients={recipients}/>
         <Grid>
           <Row className="show-grid">
-            <Panel header={< h3 > Templates < /h3>} footer={templatesFooter}>
+            <Panel header={< h3 > Templates < /h3>} footer={< h3 > Templates < /h3>}>
               fuck me
             </Panel>
             <text>akak</text>
-            <Panel header={templatesHeader} footer={templatesFooter}>
+            <Panel header={< h3 > Templates < /h3>} footer={< h3 > Templates < /h3>}>
               fuck me
             </Panel>
           </Row>

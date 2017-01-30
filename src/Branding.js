@@ -8,17 +8,14 @@ export default class Branding extends Component {
         this.state = {
             "alone":true
         }
-        this.onClick = this.onClick.bind(this)
-    }
-    onClick(event) {
-        this.props.onClick(this)
+     
     }
     render() {
         return (
             <Navbar>
                 <Navbar.Header>
                     <h1>Mail Bench</h1>
-                    <Button onClick={this.onClick}>Fuck me</Button>
+                    <Button onClick={this.props.openRecipients}>Recipients</Button>
                 </Navbar.Header>
             </Navbar>
         );
