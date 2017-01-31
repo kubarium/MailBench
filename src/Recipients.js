@@ -83,9 +83,9 @@ export default class Recipients extends Component {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button className="pull-left" bsStyle="primary" onClick={this.addRecipient}>Add</Button>
+                    <Button className="pull-left" bsStyle="primary" disabled={this.state.recipients.length>6} onClick={this.addRecipient}>Add</Button>
 
-                    <Collapse in={this.state.spammer}>
+                    <Collapse in={this.state.recipients.length>6}>
                         <div>
                             <Well>
                                 Slow down spammer!
