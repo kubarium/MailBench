@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-    ListGroupItem,
-    ListGroup,
-    Modal,
-    Button,
-    Collapse,
-    Well
-} from 'react-bootstrap'
+import {ListGroupItem, ListGroup, Modal, Button} from 'react-bootstrap'
 import Recipient from './Recipient'
 
 export default class Recipients extends Component {
@@ -15,8 +8,7 @@ export default class Recipients extends Component {
 
         this.state = {
             ...this.props,
-            showModal: false,
-            spammer: false
+            showModal: false
         }
     }
     updateRecipient = (index, updatedRecipient) => {
@@ -38,21 +30,6 @@ export default class Recipients extends Component {
                 .concat({checked: true, email: "email@domain.com"})
         })
     }
-    /*
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.recipients.length > 9) {
-            this.setState({spammer: true})
-        } else {
-            this.setState({spammer: false})
-        }
-    }
-    shouldComponentUpdate (nextProps, nextState) {
-        if(this.state.spammer)
-            return false
-        
-        return true
-    }
-    */
 
     render() {
         const recipients = []
@@ -83,15 +60,14 @@ export default class Recipients extends Component {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button className="pull-left" bsStyle="primary" disabled={this.state.recipients.length>6} onClick={this.addRecipient}>Add</Button>
+                    <Button
+                        className="pull-left"
+                        bsStyle="primary"
+                        disabled={this.state.recipients.length === 6}
+                        onClick={this.addRecipient}>{this.state.recipients.length === 6
+                            ? "Slow down spammer!"
+                            : "Add"}</Button>
 
-                    <Collapse in={this.state.recipients.length>6}>
-                        <div>
-                            <Well>
-                                Slow down spammer!
-                            </Well>
-                        </div>
-                    </Collapse>
                     <Button onClick={() => this.setState({showModal: false})}>Close</Button>
                 </Modal.Footer>
 

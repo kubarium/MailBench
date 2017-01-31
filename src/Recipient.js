@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-    InputGroup,
-    FormControl,
-    Button,
-    Glyphicon,
-    Checkbox,
-    FormGroup
-} from 'react-bootstrap'
+import {InputGroup, FormControl, Button, Glyphicon} from 'react-bootstrap'
 
 export default class Recipient extends Component {
     render() {

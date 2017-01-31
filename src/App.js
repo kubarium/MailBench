@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import './App.css';
 import Branding from './Branding'
 import Recipients from './Recipients'
-import {Button, Grid, Row, Col, Panel} from 'react-bootstrap'
+import Variables from './Variables'
+import initialState from './initialState.json'
+import {Grid, Row, Panel} from 'react-bootstrap'
 
 let appState = localStorage["appState"]
   ? JSON.stringify(localStorage["appState"])
@@ -15,41 +17,32 @@ let appState = localStorage["appState"]
           <nav>nav</nav>
           <aside>aside</aside>
         </div>*/
-let recipients = [
-  {
-    email: "infinity.matt@yahoo.com",
-    checked: true
-  }, {
-    email: "infinity.matt@outlook.com",
-    checked: true
-  }, {
-    email: "infinity.matt.s@gmail.com",
-    checked: false
-  }, {
-    email: "infinity.matt@aol.com",
-    checked: true
-  }
-]
-
 
 class App extends Component {
   constructor(props) {
     super(props)
 
   }
-  openRecipients = () => {
-    this.refs.recipients.setState({showModal:true})
+  openModalView = (view) => {
+    this
+      .refs[view]
+      .setState({showModal: true})
   }
+  componentDidMount() {
+    this.openModalView("variables")
+  }
+
   render() {
+
     return (
+
       <article>
-        <Branding  openRecipients={this.openRecipients}/>
-        <Recipients ref="recipients" recipients={recipients}/>
+        <Branding openModalView={this.openModalView}/>
+        <Recipients ref="recipients" recipients={initialState.recipients}/>
+        <Variables ref="variables" variables={initialState.variables}/>
         <Grid>
           <Row className="show-grid">
-            <Panel header={< h3 > Templates < /h3>} footer={< h3 > Templates < /h3>}>
-              fuck me
-            </Panel>
+            <Panel header={< h3 > Templates < /h3>} footer={< h3 > Templates < /h3>}></Panel>
             <text>akak</text>
             <Panel header={< h3 > Templates < /h3>} footer={< h3 > Templates < /h3>}>
               fuck me

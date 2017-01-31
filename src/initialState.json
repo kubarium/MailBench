@@ -1,14 +1,203 @@
 {
-    "recipients":[],
-    "variables":[],
-    "preview":{
-        "width":620,
-        "height":1200
-    },
-    "imports":[
-        
+    "recipients": [
+        {
+            "email": "infinity.matt@yahoo.com",
+            "checked": true
+        },
+        {
+            "email": "infinity.matt@outlook.com",
+            "checked": true
+        },
+        {
+            "email": "infinity.matt.s@gmail.com",
+            "checked": false
+        },
+        {
+            "email": "infinity.matt@aol.com",
+            "checked": true
+        }
     ],
-    "results":[
-        
-    ]
+    "variables": [
+        {
+            "id": 1,
+            "variable": "{$olink}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 2,
+            "variable": "{$accept_friendship_link}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 3,
+            "variable": "{$meet_in_person_link}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 4,
+            "variable": "{$view_email_link}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 5,
+            "variable": "{$home_link}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 6,
+            "variable": "{$email_unsubscribe_link}list=stop",
+            "value": "http://google.com?stop"
+        },
+        {
+            "id": 7,
+            "variable": "{$member_homepage_link}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 8,
+            "variable": "{$hottest_members_link}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 9,
+            "variable": "{$show_interest_notification.$vpKey.from_view_profile}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 10,
+            "variable": "{$hotlist_notification.$vpKey.from_view_profile}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 11,
+            "variable": "{$new_email_notification.$vpKey.view_email_link}",
+            "value": "http://google.com"
+        },
+        {
+            "id": 12,
+            "variable": "{$from_screen_name}",
+            "value": "MotherFuckerXXX"
+        },
+        {
+            "id": 13,
+            "variable": "{$show_interest_notification.$vpKey.from_screen_name}",
+            "value": "MotherFuckerXXX"
+        },
+        {
+            "id": 14,
+            "variable": "{$hotlist_notification.$vpKey.from_screen_name}",
+            "value": "MotherFuckerXXX"
+        },
+        {
+            "id": 15,
+            "variable": "{$new_email_notification.$vpKey.from_screen_name}",
+            "value": "MotherFuckerXXX"
+        },
+        {
+            "id": 16,
+            "variable": "{$screen_name}",
+            "value": "FatherSuckerXXX"
+        },
+        {
+            "id": 17,
+            "variable": "{$account_name}",
+            "value": "FatherSuckerXXX"
+        },
+        {
+            "id": 18,
+            "variable": "{$password}",
+            "value": "yourpassword"
+        },
+        {
+            "id": 19,
+            "variable": "{$from_profile_photo}",
+            "value": "http://infinitynetworkdesign.com/public/email/test_images/landscape.jpg"
+        },
+        {
+            "id": 20,
+            "variable": "{$show_interest_notification.$vpKey.from_profile_photo}",
+            "value": "http://infinitynetworkdesign.com/public/email/test_images/landscape.jpg"
+        },
+        {
+            "id": 21,
+            "variable": "{$hotlist_notification.$vpKey.from_profile_photo}",
+            "value": "http://infinitynetworkdesign.com/public/email/test_images/landscape.jpg"
+        },
+        {
+            "id": 22,
+            "variable": "{$new_email_notification.$vpKey.from_profile_photo}",
+            "value": "http://infinitynetworkdesign.com/public/email/test_images/landscape.jpg"
+        },
+        {
+            "id": 23,
+            "variable": "{$pl_domain}",
+            "value": "xxxpersonals.com"
+        },
+        {
+            "id": 24,
+            "variable": "{$to_address}",
+            "value": "fucktard@xxxpersonals.com"
+        },
+        {
+            "id": 25,
+            "variable": "{$image_prefix}",
+            "value": "http://infinitynetworkdesign.com/public/kumsalo/emails/1144/"
+        },
+        {
+            "id": 26,
+            "variable": "{$from_about}",
+            "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exe"
+        },
+        {
+            "id": 27,
+            "variable": "{$from_city}",
+            "value": "Toronto"
+        },
+        {
+            "id": 28,
+            "variable": "{$from_state}",
+            "value": "Ontario"
+        },
+        {
+            "id": 29,
+            "variable": "{$from_age}",
+            "value": "22"
+        },
+        {
+            "id": 30,
+            "variable": "{$show_interest_notification_counter}",
+            "value": "0"
+        },
+        {
+            "id": 31,
+            "variable": "{$hotlist_notification_counter}",
+            "value": "0"
+        },
+        {
+            "id": 32,
+            "variable": "{$new_email_notification_counter}",
+            "value": "0"
+        },
+        {
+            "id": 33,
+            "variable": "{$email_unsubscribe_link}list=internal",
+            "value": "http://google.com?internal"
+        },
+        {
+            "id": 34,
+            "variable": "{$support_email}",
+            "value": "support@easysex.com"
+        },
+        {
+            "id": 35,
+            "variable": "{$member_level}",
+            "value": "Gold"
+        }
+    ],
+    "preview": {
+        "width": 620,
+        "height": 1200
+    },
+    "imports": [],
+    "results": []
 }

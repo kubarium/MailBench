@@ -2,6 +2,12 @@
         font: 24px Helvetica;
     }
 
+#variables-grid{
+    outline:1px solid red;
+}
+.react-grid-HeaderCell, .react-grid-Row{
+    font-size:initial
+}
     #main {
         min-height: 800px;
         margin: 0px;
