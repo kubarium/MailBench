@@ -1,5 +1,6 @@
+import {Button, Modal} from 'react-bootstrap'
 import React, {Component} from 'react';
-import {Modal, Button} from 'react-bootstrap'
+
 import ReactDataGrid from 'react-data-grid'
 
 export default class Variables extends Component {
@@ -67,6 +68,25 @@ export default class Variables extends Component {
         variables.unshift(newVariable)
         this.setState({variables})
     }
+    deleteVariables = () => {
+        let selectedRows = this
+            .state
+            .selectedRows
+            .sort((a, b) => a < b
+                ? -1
+                : a > b
+                    ? 1
+                    : 0)
+        let variables = this.state.variables
+        let remove = (arr) => {
+            if (arr.length !== 0) {
+                variables.splice(arr.pop(), 1)
+                remove(arr)
+            }
+        }
+        remove(selectedRows)
+        this.setState({variables, selectedRows})
+    }
     componentDidUpdate(prevProps, prevState) {
         this
             .refs
@@ -124,6 +144,11 @@ export default class Variables extends Component {
 
                 <Modal.Footer>
                     <Button className="pull-left" bsStyle="primary" onClick={this.addVariable}>Add</Button>
+                    <Button
+                        className="pull-left"
+                        bsStyle="danger"
+                        disabled={this.state.selectedRows.length===0}
+                        onClick={this.deleteVariables}>Delete</Button>
                     <Button onClick={() => this.setState({showModal: false})}>Close</Button>
                 </Modal.Footer>
 
