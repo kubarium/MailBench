@@ -1,10 +1,13 @@
-import React, {Component} from 'react';
 import './App.css';
+
+import { Grid, Panel, Row } from 'react-bootstrap'
+import React, {Component} from 'react';
+
 import Branding from './Branding'
+import Preview from './Preview'
 import Recipients from './Recipients'
 import Variables from './Variables'
 import initialState from './initialState.json'
-import {Grid, Row, Panel} from 'react-bootstrap'
 
 let appState = localStorage["appState"]
   ? JSON.stringify(localStorage["appState"])
@@ -18,6 +21,7 @@ let appState = localStorage["appState"]
           <aside>aside</aside>
         </div>*/
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -29,7 +33,7 @@ class App extends Component {
       .setState({showModal: true})
   }
   componentDidMount() {
-    this.openModalView("variables")
+    //this.openModalView("variables")
   }
 
   render() {
@@ -43,10 +47,8 @@ class App extends Component {
         <Grid>
           <Row className="show-grid">
             <Panel header={< h3 > Templates < /h3>} footer={< h3 > Templates < /h3>}></Panel>
-            <text>akak</text>
-            <Panel header={< h3 > Templates < /h3>} footer={< h3 > Templates < /h3>}>
-              fuck me
-            </Panel>
+            
+            <Preview/>
           </Row>
         </Grid>
       </article>
