@@ -54,3 +54,8 @@
         border-radius: 7pt;
         background: #ffeebb;
     }
+
+.emphasize em{
+    text-decoration: underline;
+    font-style: normal;
+}
