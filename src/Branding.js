@@ -1,10 +1,8 @@
+import {Button, Navbar} from 'react-bootstrap';
 import React, {Component} from 'react';
-import {Navbar, Button} from 'react-bootstrap';
 
 export default class Branding extends Component {
-    constructor(props) {
-        super(props)     
-    }
+    
     render() {
         return (
             <Navbar>
