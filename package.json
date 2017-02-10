@@ -12,7 +12,8 @@
     "react-bootstrap": "^0.30.7",
     "react-data-grid": "^2.0.3",
     "react-dom": "^15.4.2",
-    "react-icons": "^2.2.3"
+    "react-icons": "^2.2.3",
+    "react-nbsp": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

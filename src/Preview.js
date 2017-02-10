@@ -18,7 +18,7 @@ import { FaBinoculars, FaClipboard, FaEnvelope, FaFloppyO } from 'react-icons/li
 import React, { Component } from 'react';
 
 import Emphasize from './Emphasize'
-
+import Space from 'react-nbsp'
 const previewOperations = (
     <Navbar>
         <Navbar.Collapse>
@@ -27,7 +27,7 @@ const previewOperations = (
                     <Button><FaBinoculars/> <Emphasize text="Preview"/></Button>
                     <Button><FaEnvelope/> <Emphasize text="Send"/></Button>
                     <Button><FaClipboard/> <Emphasize text="Copy to Clipboard"/></Button>
-                </ButtonGroup>
+                </ButtonGroup><Space/>
                 <ButtonGroup>
                     <InputGroup>
                         <DropdownButton
