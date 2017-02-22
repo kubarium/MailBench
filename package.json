@@ -13,7 +13,9 @@
     "react-data-grid": "^2.0.3",
     "react-dom": "^15.4.2",
     "react-icons": "^2.2.3",
-    "react-nbsp": "^1.0.4"
+    "react-nbsp": "^1.0.4",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
