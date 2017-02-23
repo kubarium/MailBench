@@ -1,4 +1,4 @@
-import * as ActionTypes from '../Actions'
+import * as Actions from '../Actions'
 
 import Recipients from '../components/Recipients'
 import {connect} from 'react-redux'
@@ -10,13 +10,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addRecipient: () => {
-            dispatch(ActionTypes.addRecipient())
+            dispatch(Actions.addRecipient())
         },
         updateRecipient: (recipient) => {
-            dispatch(ActionTypes.updateRecipient(recipient))
+            dispatch(Actions.updateRecipient(recipient))
         },
         deleteRecipient: (index) => {
-            dispatch(ActionTypes.deleteRecipient(index))
+            dispatch(Actions.deleteRecipient(index))
         }
     }
 }

@@ -4,41 +4,12 @@ import React, {Component} from 'react';
 import Recipient from '../Recipient'
 
 export default class Recipients extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            showModal: true
-        }
-    }/*
-    updateRecipient = (index, updatedRecipient) => {
-        let recipients = this.state.recipients
-
-        if (updatedRecipient) {
-            recipients[index] = Object.assign({}, recipients[index], updatedRecipient)
-        } else {
-            recipients.splice(index, 1)
-        }
-        this.setState({recipients})
-
-    }
-    addRecipient = () => {
-
-        this.setState({
-            recipients: this
-                .state
-                .recipients
-                .concat({checked: true, email: "email@domain.com"})
-        })
-    }*/
-
+    
     render() {
         return (
             <Modal
-                show={this.state.showModal}
-                onHide={() => console.log("SIKISSEK")}
-                keyboard={true}
-                tabIndex="-1">
+                show={this.props.show}
+                onHide={() => this.props.toggleModalView("recipients")}>
                 <Modal.Header>
                     <Modal.Title>Recipients</Modal.Title>
                 </Modal.Header>
@@ -66,7 +37,7 @@ export default class Recipients extends Component {
                             ? "Slow down spammer!"
                             : "Add"}</Button>
 
-                    <Button onClick={() => this.setState({showModal: false})}>Close</Button>
+                    <Button onClick={() => this.props.toggleModalView("recipients")}>Close</Button>
                 </Modal.Footer>
 
             </Modal>

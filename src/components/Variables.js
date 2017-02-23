@@ -10,7 +10,6 @@ export default class Variables extends Component {
         this.state = {
             ...this.props,
             originalRows: this.props.variables,
-            showModal: false,
             columns: [
                 {
                     key: 'variable',
@@ -87,12 +86,12 @@ export default class Variables extends Component {
         remove(selectedRows)
         this.setState({variables, selectedRows})
     }
-    componentDidUpdate(prevProps, prevState) {
+    /*componentDidUpdate(prevProps, prevState) {
         this
             .refs
             .grid
             .updateMetrics();
-    }
+    }*/
     onRowsSelected = (rows) => {
         this.setState({
             selectedRows: this
@@ -114,7 +113,10 @@ export default class Variables extends Component {
     render() {
 
         return (
-            <Modal show={this.state.showModal} bsSize="large">
+            <Modal
+                show={this.props.show}
+                bsSize="large"
+                onHide={() => this.props.toggleModalView("variables")}>
                 <Modal.Header>
                     <Modal.Title>Variables</Modal.Title>
                 </Modal.Header>
@@ -122,7 +124,6 @@ export default class Variables extends Component {
                 <Modal.Body>
                     <div id="variables-grid">
                         <ReactDataGrid
-                            ref="grid"
                             enableCellSelect={true}
                             onGridSort={this.handleGridSort}
                             onRowUpdated={this.handleRowUpdated}
@@ -147,9 +148,11 @@ export default class Variables extends Component {
                     <Button
                         className="pull-left"
                         bsStyle="danger"
-                        disabled={this.state.selectedRows.length===0}
+                        disabled={this.state.selectedRows.length === 0}
                         onClick={this.deleteVariables}>Delete</Button>
-                    <Button onClick={() => this.setState({showModal: false})}>Close</Button>
+                    <Button className="pull-left" bsStyle="success" onClick={this.exportVariables}>Export</Button>
+                    <Button className="pull-left" bsStyle="warning" onClick={this.importVariables}>Import</Button>                    
+                    <Button onClick={() => this.props.toggleModalView("variables")}>Close</Button>
                 </Modal.Footer>
 
             </Modal>

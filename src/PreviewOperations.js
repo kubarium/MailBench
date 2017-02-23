@@ -35,7 +35,7 @@ export default class PreviewOperations extends Component {
                     <Space/>
                     <InputGroup>
                       <InputGroup.Addon>Height</InputGroup.Addon>
-                      <FormControl  onChange={ this.props.updateFrameHeight } className="metricEntry" type="text" value="1000" />
+                      <FormControl  onChange={ this.props.updateFrameHeight } className="metricEntry" type="text" defaultValue="1000" />
                     </InputGroup>
                   </ButtonGroup>
                 </Navbar.Form>
