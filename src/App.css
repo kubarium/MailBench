@@ -76,3 +76,9 @@ iframe {
     margin: 0 auto;
     padding: 0;
 }
+
+.thumbnail{
+}
+.slick-dots{
+    bottom:-10px;
+}

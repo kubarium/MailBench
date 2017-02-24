@@ -109,7 +109,19 @@ export default class Variables extends Component {
                 .filter(index => selectedRows.indexOf(index) === -1)
         })
     }
-
+    exportVariables = () => {
+        /*axios
+            .post('/user', {
+                firstName: 'Fred',
+                lastName: 'Flintstone'
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });*/
+    }
     render() {
 
         return (
@@ -151,7 +163,7 @@ export default class Variables extends Component {
                         disabled={this.state.selectedRows.length === 0}
                         onClick={this.deleteVariables}>Delete</Button>
                     <Button className="pull-left" bsStyle="success" onClick={this.exportVariables}>Export</Button>
-                    <Button className="pull-left" bsStyle="warning" onClick={this.importVariables}>Import</Button>                    
+                    <Button className="pull-left" bsStyle="warning" onClick={this.importVariables}>Import</Button>
                     <Button onClick={() => this.props.toggleModalView("variables")}>Close</Button>
                 </Modal.Footer>
 
