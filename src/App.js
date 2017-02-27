@@ -6,6 +6,7 @@ import React, {Component} from 'react';
 import Branding from './Branding'
 import Preview from './Preview'
 import Recipients from './containers/RecipientsContainer'
+import Settings from './components/Settings'
 import Templates from './containers/TemplatesContainer'
 import Variables from './containers/VariablesContainer'
 
@@ -20,20 +21,20 @@ class App extends Component {
     super(props)
 
     this.state = {
-      showRecipients: false,
-      showVariables: false
+        recipients: false,
+        variables: false,
+        settings: true
     }
   }
   toggleModalView = (view) => {
+
     switch (view) {
       case "recipients":
-        return this.setState({
-          showRecipients: !this.state.showRecipients
-        })
+        return this.setState({recipients: !this.state.recipients})
       case "variables":
-        return this.setState({
-          showVariables: !this.state.showVariables
-        })
+        return this.setState({variables: !this.state.variables})
+      case "settings":
+        return this.setState({settings: !this.state.settings})
       default:
         return
     }
@@ -43,18 +44,19 @@ class App extends Component {
     return (
       <main>
         <Recipients
-          show={this.state.showRecipients}
+          show={this.state.recipients}
           toggleModalView={this.toggleModalView}/>
         <Variables
-          show={this.state.showVariables}
+          show={this.state.variables}
+          toggleModalView={this.toggleModalView}/>
+        <Settings
+          show={this.state.settings}
           toggleModalView={this.toggleModalView}/>
         <Branding toggleModalView={this.toggleModalView}/>
         <Grid>
           <Row>
             <Col md={12} sm={12} lg={12}>
-              <Panel header={< h3 > Templates < /h3>} footer="FUCK ME">
-                  <Templates/>
-              </Panel>
+              <Templates/>
             </Col>
           </Row>
           <Row className="show-grid">

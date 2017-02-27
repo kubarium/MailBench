@@ -1,4 +1,4 @@
-import {Button, ListGroup, ListGroupItem, Thumbnail} from 'react-bootstrap'
+import {Button, ListGroup, ListGroupItem, Panel, Thumbnail} from 'react-bootstrap'
 import React, {Component} from 'react';
 
 import Slider from 'react-slick'
@@ -8,6 +8,10 @@ const nextArrow = (
 )
 const prevArrow = (
     <button>Prev</button>
+)
+
+const header = (
+    <h3>Templates</h3>
 )
 
 class Templates extends Component {
@@ -35,22 +39,21 @@ class Templates extends Component {
                         slidesToShow: 4,
                         slidesToScroll: 4
                     }
-                }, {
-                    breakpoint: 100000,
-                    settings: 'unslick'
                 }
             ]
         };
         return (
-            <Slider {...settings}>
-                {Array.from(new Array(100), (x, i) => i).map(num => <Thumbnail key={num} src="/assets/thumbnaildiv.png" alt="242x200">
-                    <h3>Thumbnail {num}</h3>
-                    <p>Description</p>
-                    <p>
-                        <Button bsStyle="danger">Delete</Button>
-                    </p>
-                </Thumbnail>)}
-            </Slider>
+            <Panel header={header} footer="FUCK ME">
+                <Slider {...settings}>
+                    {Array.from(new Array(100), (x, i) => i).map(num => <Thumbnail key={num} src="/assets/thumbnaildiv.png" alt="242x200">
+                        <h3>Thumbnail {num}</h3>
+                        <p>Description</p>
+                        <p>
+                            <Button bsStyle="danger">Delete</Button>
+                        </p>
+                    </Thumbnail>)}
+                </Slider>
+            </Panel>
         )
     }
 }

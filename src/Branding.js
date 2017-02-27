@@ -17,6 +17,9 @@ export default class Branding extends Component {
                     <NavItem eventKey={2}>
                         <Button onClick={() => this.props.toggleModalView("variables")}>Variables</Button>
                     </NavItem>
+                    <NavItem eventKey={3}>
+                        <Button onClick={() => this.props.toggleModalView("settings")}>Settings</Button>
+                    </NavItem>
                 </Nav>
 
             </Navbar>
