@@ -1,16 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import mutationsSettings from "./mutations-settings"
+import mutationsSettings from "./mutations-settings";
 Vue.use(Vuex);
 
 const mutations = {
   toggleModal(state, payload) {
-    state[payload.modal].show = payload.toggle
-  },
-  updateSettings(state, payload) {
-    console.log(payload)
+    state[payload.modal].show = payload.toggle;
   }
-}
+};
 
 export default new Vuex.Store({
   state: {
@@ -23,7 +20,9 @@ export default new Vuex.Store({
         auth: true,
         encryption: 22,
         port: 22
-      }
+      },
+      pattern: "",
+      patterns: []
     }
   },
   mutations: Object.assign({}, mutations, mutationsSettings),

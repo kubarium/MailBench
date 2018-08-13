@@ -118,26 +118,29 @@
       <div class="box">
 
         <div class="field">
-          <label class="label has-text-info has-background-light" @click="toggle('email')" @toggle="toggle('email')">Email Variables
-            <toggle :toggled="section==='email'" />
+          <label class="label has-text-info has-background-light" @click="toggle('patterns')" @toggle="toggle('patterns')">Variable Patterns
+            <toggle :toggled="section==='patterns'" />
           </label>
-          <div class="field has-addons" v-show="section==='email'">
-
+          <div class="field has-addons" v-show="section==='patterns'">
             <p class="control is-expanded">
-              <input class="input" type="email" placeholder="Your Litmus test address to create a new Checklist" v-model="settings.litmus">
+              <input class="input" type="text" placeholder="Like {*} or %*%. Use * to mark any characters between selectors" v-model="settings.pattern">
             </p>
             <p class="control">
-              <a class="button is-static">
-                @litmustest.com
-              </a>
-            </p>
-            <p class="control">
-              <a class="button is-info" href="//litmus.com/settings" target="_blank">
+              <button class="button is-info" @click="$store.commit('addPattern', settings.pattern)" :disabled="settings.pattern.length===0">
                 <span class="icon is-small">
-                  <i class="fas fa-question"></i>
+                  <i class="fas fa-plus"></i>
                 </span>
-              </a>
+              </button>
             </p>
+          </div>
+          <div class="field">
+            <div class="control">
+              <div class="tags">
+                <span class="tag is-link" v-for="(pattern,index) in settings.patterns" :key="index">{{pattern}}
+                  <button class="delete is-medium" @click="$store.commit('removePattern',index)"></button>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -148,18 +151,17 @@
 <script>
 import Modal from "@/components/Modal";
 import Toggle from "@/components/Toggle";
-import { mapState } from "vuex";
 
 export default {
   name: "Settings",
   mounted() {
-    ["change", "keyup"].forEach(event =>
-      this.$el.addEventListener(event, () => (this.hasUnsavedChanges = true))
-    );
+    ["change", "keyup"].forEach(event => {
+      this.$el.addEventListener(event, () => (this.hasUnsavedChanges = true));
+    });
   },
   data() {
     return {
-      section: "litmus",
+      section: "patterns",
       hasUnsavedChanges: false
     };
   },
@@ -203,4 +205,3 @@ label:not(:last-child) {
   cursor: pointer;
 }
 </style>
-
