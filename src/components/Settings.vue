@@ -189,8 +189,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-input[type="number"] {
-}
 .is-vertically-centered {
   display: flex;
   align-items: center;
