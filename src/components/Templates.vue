@@ -1,6 +1,5 @@
 <template>
     <div>
-
-        Templates
+        Existing Templates
     </div>
 </template>

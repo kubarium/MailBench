@@ -12,7 +12,7 @@ const mutations = {
 export default new Vuex.Store({
   state: {
     settings: {
-      show: true,
+      show: false,
       mail: {
         username: "",
         password: "",
