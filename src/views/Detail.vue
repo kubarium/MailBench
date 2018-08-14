@@ -16,6 +16,18 @@ export default {
   components: {
     Recipients,
     Variables
+  },
+  updated() {
+    console.log("feeble");
+  },
+  watch: {
+    $route: (to, from) => {
+      console.log(to, from);
+      /* if (this.$route.params === "") {
+        console.log("Smarten up");
+        this.$route.push("home");
+      } */
+    }
   }
 };
 </script>
