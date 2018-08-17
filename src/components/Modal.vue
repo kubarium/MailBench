@@ -1,5 +1,5 @@
 <template>
-    <div class="modal" :class="{'is-active':$store.state.settings.show}">
+    <div class="modal" :class="{'is-active':$store.state[parent].show}">
         <div class="modal-background" @click="closeModal"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -23,10 +23,10 @@
 <script>
 export default {
   name: "Modal",
-  props: ["title"],
+  props: ["title", "parent"],
   methods: {
     closeModal() {
-      this.$store.commit("toggleModal", { modal: "settings", toggle: false });
+      this.$store.commit("toggleModal", { modal: this.parent, toggle: false });
     }
   }
 };
