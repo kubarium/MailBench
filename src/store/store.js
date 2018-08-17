@@ -22,7 +22,12 @@ export default new Vuex.Store({
         port: 22
       },
       pattern: "",
-      patterns: []
+      patterns: [],
+      recipient: "",
+      recipients: []
+    },
+    addTemplate: {
+      show: false
     }
   },
   mutations: Object.assign({}, mutations, mutationsSettings),
