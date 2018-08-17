@@ -1,5 +1,5 @@
 <template>
-  <modal :title="this.$options._componentTag">
+  <modal :title="this.$options._componentTag" parent="settings">
     <div slot="body">
       <div class="box">
 
@@ -116,7 +116,6 @@
         </div>
       </div>
       <div class="box">
-
         <div class="field">
           <label class="label has-text-info has-background-light" @click="toggle('patterns')" @toggle="toggle('patterns')">Variable Patterns
             <toggle :toggled="section==='patterns'" />
@@ -133,11 +132,41 @@
               </button>
             </p>
           </div>
-          <div class="field">
+          <div class="field" v-show="section==='patterns'">
             <div class="control">
               <div class="tags">
                 <span class="tag is-link" v-for="(pattern,index) in settings.patterns" :key="index">{{pattern}}
                   <button class="delete is-medium" @click="$store.commit('removePattern',index)"></button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="field">
+          <label class="label has-text-info has-background-light" @click="toggle('recipients')" @toggle="toggle('recipients')">Recipients
+            <span class="is-size-7 has-text-dark">(Up to 3)</span>
+            <toggle :toggled="section==='recipients'" />
+          </label>
+          <div class="field has-addons" v-show="section==='recipients'">
+            <p class="control is-expanded">
+              <input class="input" type="email" placeholder="Email address of the recipient" v-model="settings.recipient">
+            </p>
+            <p class="control">
+              <button class="button is-info" @click="$store.commit('addRecipient', settings.recipient)" :disabled="settings.recipient.length===0 || settings.recipients.length>2">
+                <span class="icon is-small">
+                  <i class="fas fa-plus"></i>
+                </span>
+              </button>
+            </p>
+          </div>
+          <div class="field" v-show="section==='recipients'">
+            <div class="control">
+              <div class="tags">
+                <span class="tag is-link" v-for="(recipient,index) in settings.recipients" :key="index">{{recipient}}
+                  <button class="delete is-medium" @click="$store.commit('removeRecipient',index)"></button>
                 </span>
               </div>
             </div>
@@ -161,7 +190,7 @@ export default {
   },
   data() {
     return {
-      section: "patterns",
+      section: "recipients",
       hasUnsavedChanges: false
     };
   },
