@@ -1,12 +1,76 @@
 <template>
     <modal title="Add New Template" parent="addTemplate">
-        <div slot="body">asdasd</div>
+        <div slot="body">
+
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">
+                        From
+                    </label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <input class="input" type="text" placeholder="Mailbench <email@domain.com>" v-model="addTemplate.from">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user-tie"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">
+                        Subject
+                    </label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input" type="text" placeholder="Your awesome subject line" v-model="addTemplate.subject">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-comment"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">
+                        Template
+                    </label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="file is-info has-name is-fullwidth">
+                            <label class="file-label">
+                                <input class="file-input" type="file" @change="readTemplate">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        Choose a file…
+                                    </span>
+                                </span>
+                                <span class="file-name">
+                                    {{template}}
+                                </span>
+                            </label>
+                        </div>
+                        <div class="has-text-danger" v-show="binary">Oh no! Pick an HTML, PHP or another similar file type.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button slot="footer" class="button is-success" @click="$store.dispatch('addTemplate')" :disabled="!template">Start Previewing</button>
     </modal>
 </template>
 
 <script>
 import Modal from "@/components/Modal";
-import Toggle from "@/components/Toggle";
 
 export default {
   name: "AddTemplate",
@@ -17,29 +81,48 @@ export default {
   },
   data() {
     return {
-      section: "recipients",
+      template: "",
+      binary: false,
       hasUnsavedChanges: false
     };
   },
   methods: {
-    toggle(section) {
-      this.section = section;
+    readTemplate(event) {
+      const file = event.target.files[0];
+
+      if (!file) return;
+
+      //const type = file.type;
+      const extension = file.name.split(".")[1];
+
+      if (["html", "htm", "php", "asp", "cfm"].includes(extension) == false) {
+        this.binary = true;
+        this.template = "";
+      } else {
+        this.binary = false;
+        this.template = file.name;
+      }
     },
     saveChanges() {
       this.hasUnsavedChanges = false;
-      this.$store.commit("updateSettings", this.settings);
+      this.$store.commit("addTemplate", this.addTemplate);
     }
   },
   computed: {
-    settings: {
+    addTemplate: {
       get() {
-        return this.$store.state.settings;
+        return this.$store.state.addTemplate;
       }
     }
   },
   components: {
-    Modal,
-    Toggle
+    Modal
   }
 };
 </script>
+<style lang="scss">
+.box {
+  /* border-style: dashed;
+  border-width: 1px; */
+}
+</style>
