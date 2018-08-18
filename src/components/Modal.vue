@@ -12,8 +12,8 @@
             <footer class="modal-card-foot">
                 <slot name="footer">
                     <button class="button is-success" @click="$parent.saveChanges" :disabled="!$parent.$data.hasUnsavedChanges">Save Changes</button>
-                    <button class="button" @click="closeModal">Close</button>
                 </slot>
+                <button class="button" @click="closeModal">Close</button>
             </footer>
         </div>
     </div>
