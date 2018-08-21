@@ -55,7 +55,7 @@
                         <p class="control">
                             <button class="button" @click="$store.commit('toggleModal',{modal:'settings',toggle:true})">
                                 <span class="icon">
-                                    <i class="fas fa-cogs"></i>
+                                    <font-awesome-icon icon="cogs" />
                                 </span>
                                 <span>Settings</span>
                             </button>
@@ -63,7 +63,7 @@
                         <p class="control">
                             <button class="button is-primary" @click="$store.commit('toggleModal',{modal:'addTemplate',toggle:true})">
                                 <span class="icon">
-                                    <i class="fas fa-plus"></i>
+                                    <font-awesome-icon icon="plus" />
                                 </span>
                                 <span>Add Template</span>
                             </button>

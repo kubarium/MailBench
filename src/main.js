@@ -3,6 +3,7 @@ import App from "./App.vue";
 import "bulma";
 import store from "@/store/store";
 import router from "./router";
+import "./fontawesome"
 
 Vue.config.productionTip = false;
 console.clear();

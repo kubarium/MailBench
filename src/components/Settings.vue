@@ -4,7 +4,7 @@
       <div class="box">
 
         <div class="field">
-          <label class="label has-text-info has-background-light" @click="toggle('litmus')" @toggle="toggle('litmus')">Litmus Checklist
+          <label class="label has-text-info has-background-light" @click="toggle('litmus')">Litmus Checklist
             <toggle :toggled="section==='litmus'" />
           </label>
           <div class="field has-addons" v-show="section==='litmus'">
@@ -20,7 +20,7 @@
             <p class="control">
               <a class="button is-info" href="//litmus.com/settings" target="_blank">
                 <span class="icon is-small">
-                  <i class="fas fa-question"></i>
+                  <font-awesome-icon icon="question" />
                 </span>
               </a>
             </p>
@@ -29,7 +29,7 @@
       </div>
       <div class="box">
         <div class="field">
-          <label class="label has-text-info has-background-light" @click="toggle('server')" @toggle="toggle('server')">Mail Server
+          <label class="label has-text-info has-background-light" @click="toggle('server')">Mail Server
             <toggle :toggled="section==='server'" />
           </label>
           <div v-show="section==='server'">
@@ -45,7 +45,7 @@
                   <p class="control is-expanded has-icons-left">
                     <input class="input" type="text" placeholder="mail.domain.com" v-model="settings.mail.host">
                     <span class="icon is-small is-left">
-                      <i class="fas fa-server"></i>
+                      <font-awesome-icon icon="server" />
                     </span>
                   </p>
                 </div>
@@ -53,7 +53,7 @@
                   <p class="control has-icons-left">
                     <input class="input" type="number" min="0" placeholder="22" v-model="settings.mail.port">
                     <span class="icon is-small is-left">
-                      <i class="fas fa-globe"></i>
+                      <font-awesome-icon icon="globe" />
                     </span>
                   </p>
                 </div>
@@ -98,7 +98,7 @@
                   <p class="control is-expanded has-icons-left">
                     <input class="input" type="text" placeholder="Username/Email" v-model="settings.mail.username">
                     <span class="icon is-small is-left">
-                      <i class="fas fa-user"></i>
+                      <font-awesome-icon icon="user" />
                     </span>
                   </p>
                 </div>
@@ -106,7 +106,7 @@
                   <p class="control is-expanded has-icons-left">
                     <input class="input" type="password" placeholder="Password" v-model="settings.mail.password">
                     <span class=" icon is-small is-left">
-                      <i class="fas fa-key"></i>
+                      <font-awesome-icon icon="key" />
                     </span>
                   </p>
                 </div>
@@ -117,7 +117,7 @@
       </div>
       <div class="box">
         <div class="field">
-          <label class="label has-text-info has-background-light" @click="toggle('patterns')" @toggle="toggle('patterns')">Variable Patterns
+          <label class="label has-text-info has-background-light" @click="toggle('patterns')">Variable Patterns
             <toggle :toggled="section==='patterns'" />
           </label>
           <div class="field has-addons" v-show="section==='patterns'">
@@ -127,7 +127,7 @@
             <p class="control">
               <button class="button is-info" @click="$store.commit('addPattern', settings.pattern)" :disabled="settings.pattern.length===0">
                 <span class="icon is-small">
-                  <i class="fas fa-plus"></i>
+                  <font-awesome-icon icon="plus" />
                 </span>
               </button>
             </p>
@@ -146,7 +146,7 @@
 
       <div class="box">
         <div class="field">
-          <label class="label has-text-info has-background-light" @click="toggle('recipients')" @toggle="toggle('recipients')">Recipients
+          <label class="label has-text-info has-background-light" @click="toggle('recipients')">Recipients
             <span class="is-size-7 has-text-dark">(Up to 3)</span>
             <toggle :toggled="section==='recipients'" />
           </label>
@@ -157,7 +157,7 @@
             <p class="control">
               <button class="button is-info" @click="$store.commit('addRecipient', settings.recipient)" :disabled="settings.recipient.length===0 || settings.recipients.length>2">
                 <span class="icon is-small">
-                  <i class="fas fa-plus"></i>
+                  <font-awesome-icon icon="plus" />
                 </span>
               </button>
             </p>
@@ -177,7 +177,7 @@
       <div class="box">
 
         <div class="field">
-          <label class="label has-text-info has-background-light" @click="toggle('defaults')" @toggle="toggle('defaults')">Defaults
+          <label class="label has-text-info has-background-light" @click="toggle('defaults')">Defaults
             <toggle :toggled="section==='defaults'" />
           </label>
           <div class="field" v-show="section==='defaults'">
@@ -193,7 +193,7 @@
                   <p class="control is-expanded has-icons-left">
                     <input class="input" type="text" placeholder="Mailbench <email@domain.com>" v-model="$store.state.settings.defaults.from">
                     <span class="icon is-small is-left">
-                      <i class="fas fa-user-tie"></i>
+                      <font-awesome-icon icon="user-tie" />
                     </span>
                   </p>
                 </div>
@@ -210,7 +210,7 @@
                   <p class="control has-icons-left">
                     <input class="input" type="text" placeholder="Your awesome subject line" v-model="$store.state.settings.defaults.subject">
                     <span class="icon is-small is-left">
-                      <i class="fas fa-comment"></i>
+                      <font-awesome-icon icon="comment" />
                     </span>
                   </p>
                 </div>
@@ -242,7 +242,6 @@ export default {
   },
   methods: {
     toggle(section) {
-      console.log(section);
       this.section = section;
     },
     saveChanges() {

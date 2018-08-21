@@ -24,7 +24,11 @@ export default new Vuex.Store({
       pattern: "",
       patterns: [],
       recipient: "",
-      recipients: []
+      recipients: [],
+      defaults: {
+        from: "",
+        subject: ""
+      }
     },
     addTemplate: {
       show: false

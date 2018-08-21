@@ -13,7 +13,7 @@
                         <p class="control is-expanded has-icons-left">
                             <input class="input" type="text" placeholder="Mailbench <email@domain.com>" v-model="addTemplate.from">
                             <span class="icon is-small is-left">
-                                <i class="fas fa-user-tie"></i>
+                                <font-awesome-icon icon="user-tie" />
                             </span>
                         </p>
                     </div>
@@ -30,7 +30,7 @@
                         <p class="control has-icons-left">
                             <input class="input" type="text" placeholder="Your awesome subject line" v-model="addTemplate.subject">
                             <span class="icon is-small is-left">
-                                <i class="fas fa-comment"></i>
+                                <font-awesome-icon icon="comment" />
                             </span>
                         </p>
                     </div>
@@ -49,7 +49,7 @@
                                 <input class="file-input" type="file" @change="readTemplate">
                                 <span class="file-cta">
                                     <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
+                                        <font-awesome-icon icon="upload" />
                                     </span>
                                     <span class="file-label">
                                         Choose a file…
