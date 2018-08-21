@@ -121,8 +121,4 @@ export default {
 };
 </script>
 <style lang="scss">
-.box {
-  /* border-style: dashed;
-  border-width: 1px; */
-}
 </style>
