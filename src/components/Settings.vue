@@ -173,6 +173,52 @@
           </div>
         </div>
       </div>
+
+      <div class="box">
+
+        <div class="field">
+          <label class="label has-text-info has-background-light" @click="toggle('defaults')" @toggle="toggle('defaults')">Defaults
+            <toggle :toggled="section==='defaults'" />
+          </label>
+          <div class="field" v-show="section==='defaults'">
+
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">
+                  From
+                </label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input class="input" type="text" placeholder="Mailbench <email@domain.com>" v-model="$store.state.settings.defaults.from">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user-tie"></i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">
+                  Subject
+                </label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control has-icons-left">
+                    <input class="input" type="text" placeholder="Your awesome subject line" v-model="$store.state.settings.defaults.subject">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-comment"></i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </modal>
 </template>
@@ -190,12 +236,13 @@ export default {
   },
   data() {
     return {
-      section: "recipients",
+      section: "litmus",
       hasUnsavedChanges: false
     };
   },
   methods: {
     toggle(section) {
+      console.log(section);
       this.section = section;
     },
     saveChanges() {
